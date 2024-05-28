@@ -11,7 +11,9 @@
 
 1. composer i
 2. npm i
-3. npm run dev
-4. buat terminal baru, php artisan serve
+3. php artisan storage:link
+4. pindahin folder products di public ke public/storage
+5. npm run dev
+6. buat terminal baru, php artisan serve
 
 
