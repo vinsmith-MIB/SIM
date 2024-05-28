@@ -124,7 +124,7 @@
             <h5 class="card-title">Rp. {{number_format($product->harga, 0, ',', '.');}}</h5>
             <p class="card-text mb-0">{{$product->nama_produk}}</p>
             <p class="text-muted">
-              
+            {{$product->keterangan}}
             </p>
           </div>
         </div>
