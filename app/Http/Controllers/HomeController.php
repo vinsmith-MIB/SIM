@@ -32,6 +32,27 @@ class HomeController extends Controller
 
         return view('welcome', compact('categories', 'products', 'productDiscount'));
     } 
-  
+
+    public function search(Request $request): View
+    {
+        // Validasi input
+        $request->validate([
+            'query' => 'nullable|string|max:255',
+        ]);
+        $categories = Kategori::all();
+    
+        // Ambil input pencarian
+        $query = $request->input('query');
+    
+        // Mencari produk berdasarkan nama_produk yang mengandung string pencarian
+        $products = Produk::where('nama_produk', 'LIKE', '%' . $query . '%')
+                          ->orderBy('created_at', 'desc')
+                          ->paginate(5);
+
+                          
+        // Mengembalikan view dengan data produk yang ditemukan
+        return view('pages.list-view', compact('products', 'categories'));
+    }
+    
 
 }

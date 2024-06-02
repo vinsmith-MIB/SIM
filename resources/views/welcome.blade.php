@@ -90,7 +90,7 @@
                 best deals
               </h2>
               <p class="text-white">No matter how far along you are in your sophistication as an amateur astronomer, there is always one.</p>
-              <a href="#" class="btn btn-light shadow-0 text-primary"> View more </a>
+              <a href="{{url('search#')}}" class="btn btn-light shadow-0 text-primary"> View more </a>
             </div>
           </div>
         </div>
@@ -119,11 +119,11 @@
             </div>
             <img src="{{asset('storage/products/'.$product->gambar)}}" class="card-img-top" style="aspect-ratio: 1 / 1">
           </a>
-          <div class="card-body p-0 pt-3">
+          <div class="card-body p-0 pt-3 mx-2">
             <a href="#!" class="btn btn-light border px-2 pt-2 float-end icon-hover"><i class="fas fa-heart fa-lg px-1 text-secondary"></i></a>
             <h5 class="card-title">Rp. {{number_format($product->harga, 0, ',', '.');}}</h5>
             <p class="card-text mb-0">{{$product->nama_produk}}</p>
-            <p class="text-muted">
+            <p class="text-muted text-truncate">
             {{$product->keterangan}}
             </p>
           </div>
