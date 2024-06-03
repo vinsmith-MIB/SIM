@@ -12,6 +12,8 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/cart', [HomeController::class, 'cartView'])->name('cart');
+
 
 
 /*------------------------------------------
@@ -21,8 +23,7 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
   
-    Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::get('search', [HomeController::class, 'search'])->name('search');
+    Route::get('home/{id}', [HomeController::class, 'index'])->name('home');
 
 });
   
@@ -33,5 +34,5 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
   
-    Route::get('/home', [AdminHomeController::class, 'index'])->name('admin.home');
+    Route::get('/home/{id}', [AdminHomeController::class, 'index'])->name('admin.home');
 });

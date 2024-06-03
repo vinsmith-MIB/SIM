@@ -62,7 +62,7 @@
                             <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-heart m-1 me-md-2"></i>
                                 <p class="d-none d-md-block mb-0">Wishlist</p>
                             </a>
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-shopping-cart m-1 me-md-2"></i>
+                            <a href="{{route('cart')}}" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-shopping-cart m-1 me-md-2"></i>
                                 <p class="d-none d-md-block mb-0">My cart</p>
                             </a>
                         </div>
@@ -95,6 +95,7 @@
     <main class="py-4">
         @yield('content')
     </main>
+    @extends('partials.shopping-footer')
    
     <script src="{{asset('assets/js/index.js')}}"></script>
     
