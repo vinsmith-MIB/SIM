@@ -32,5 +32,48 @@ class AdminHomeController extends Controller
         return view('adminHome');
     } 
   
+    public function kategori(): View
+    {
+       
 
+        return view('kategoriProduk');
+    }
+    public function produk(): View
+    {
+       
+
+        return view('produk');
+    }
+    public function laporan(): View
+    {
+       
+
+        return view('laporan');
+    }
+    public function editproduk(): View
+    {
+       
+
+        return view('editproduk');
+    }
+
+    public function order(): View
+    {
+       
+
+        return view('adminOrder');
+    } 
+
+    public function editKategori(): View
+    {
+       
+
+        return view('editKategori');
+    }
+    public function editlaporan(): View
+    {
+       
+
+        return view('editlaporan');
+    }
 }

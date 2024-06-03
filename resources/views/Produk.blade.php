@@ -369,9 +369,7 @@
                 <th>No</th>
                 <th>Nama Produk</th>
                 <th>Harga</th>
-                <th>Diskon</th>
                 <th>Stok</th>
-                <th>Tanggal masuk</th>
                 <th>Aksi</th>
                 
             </tr>
@@ -382,9 +380,7 @@
                 <td>ID</td>
                 <td>Nama</td>
                 <td>Harga</td>
-                <td>Diskon</td>
                 <td>Jumlah stok</td>
-                <th>Tanggal</th>
                 <td>
                     <a href="editproduk" class="btn btn-primary btn-sm">Edit</a>
                     <form action="#" method="POST" style="display:inline;">

@@ -367,12 +367,11 @@
         <thead>
             <tr>
                 <th>No</th>
-                <th>Faktur</th>
                 <th>Tanggal</th>
                 <th>Nama Produk</th>
-                <th>Qty</th>
-                <th>Harga</th>
-                <th>Sub Total</th>
+                <th>Jumlah Terjual</th>
+                <th>Harga(item)</th>
+                <th>Total Penjualan</th>
                 <th>Aksi</th>
                 
             </tr>
@@ -381,14 +380,13 @@
            
             <tr>
                 <th>No</th>
-                <th>Faktur</th>
                 <th>Tanggal</th>
                 <th>Nama Produk</th>
-                <th>Qty</th>
-                <th>Harga</th>
-                <th>Sub Total</th>
+                <th>Jumlah Terjual</th>
+                <th>Harga(item)</th>
+                <th>Total Penjualan</th>
                 <td>
-                    <a href="Edit" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="editlaporan" class="btn btn-primary btn-sm">Edit</a>
                     <form action="#" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

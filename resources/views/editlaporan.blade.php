@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Edit Produk</title>
+    <title>Admin - Edit Laporan</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,12 +50,12 @@
         <div class="container-fluid py-5 content-wrapper">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800 text-center">Edit Produk</h1>
+            <h1 class="h3 mb-4 text-gray-800 text-center">Edit Laporan</h1>
 
             <!-- Edit Kategori Produk Form -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Produk</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edit Laporan</h6>
                 </div>
                 <div class="card-body">
                     <form action="#" method="POST">
@@ -75,7 +75,7 @@
                             <input type="text" class="form-control" id="jumlah_stok" name="jumlah_stok" value="Jumlah Stok">
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                        <a href="{{route('admin.produk')}}" type="button" class="btn btn-danger mr-2">Back</a>
+                        <a href="{{route('admin.laporan')}}" type="button" class="btn btn-danger mr-2">Back</a>
                         <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
