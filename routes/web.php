@@ -34,5 +34,8 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
   
-    Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
+    Route::get('home', [AdminHomeController::class, 'index'])->name('admin.home');
+    Route::get('kategoriProduk', [AdminHomeController::class, 'kategori'])->name('admin.kategori');
+    Route::get('order', [AdminHomeController::class, 'order'])->name('admin.order');
+    Route::get('editKategori', [AdminHomeController::class, 'editKategori'])->name('admin.editKategori');
 });

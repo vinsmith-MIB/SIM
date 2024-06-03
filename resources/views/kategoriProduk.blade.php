@@ -379,7 +379,7 @@
                 <td>Nama</td>
                 <td>SEO</td>
                 <td>
-                    <a href="#" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="editKategori" class="btn btn-primary btn-sm">Edit</a>
                     <form action="#" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')

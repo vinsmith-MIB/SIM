@@ -45,4 +45,11 @@ class AdminHomeController extends Controller
 
         return view('adminOrder');
     } 
+
+    public function editKategori(): View
+    {
+       
+
+        return view('editKategori');
+    } 
 }

@@ -369,8 +369,11 @@
                 <th>No Pesanan</th>
                 <th>Nama Konsumen</th>
                 <th>Tanggal</th>
-                <th>Jam</th>
-                <th>Aksi</th>
+                <th>Nama Produk</th>
+                <th>Jumlah</th>
+                <th>Harga per Unit</th>
+                <th>Total Harga</th>
+                <th>Total Pembayaran</th>
             </tr>
         </thead>
         <tbody>
@@ -379,10 +382,11 @@
                 <td>ID</td>
                 <td>Nama</td>
                 <td>dd/mm/yyyy</td>
-                <td>hh:mm:ss</td>
-                <td>
-                    <a href="#" class="btn btn-primary btn-sm">Detail</a>
-                </td>
+                <td>Barang</td>
+                <td>2</td>
+                <td>Rp 5.000,00</td>
+                <td>Rp 10.000,00</td>
+                <td>Rp 10.000,00</td>
             </tr>
             
         </tbody>
