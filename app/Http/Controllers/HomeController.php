@@ -32,6 +32,44 @@ class HomeController extends Controller
 
         return view('welcome', compact('categories', 'products', 'productDiscount'));
     } 
-  
+
+    public function search(Request $request): View
+{
+    // Validasi input
+    $request->validate([
+        'query' => 'nullable|string|max:255',
+        'category' => 'nullable|string|max:255',
+    ]);
+    $categories = Kategori::all();
+
+    // Ambil input pencarian
+    $query = $request->input('query');
+    $category = $request->input('category');
+
+    // Query untuk mencari produk berdasarkan nama produk dan/atau kategori
+    $products = Produk::where(function ($queryBuilder) use ($query, $category, $categories) {
+        // Filter berdasarkan nama produk
+        if (!empty($query)) {
+            $queryBuilder->where('nama_produk', 'LIKE', '%' . $query . '%');
+        }
+
+        // Filter berdasarkan kategori jika kategori telah dipilih
+        if (!empty($category)) {
+            $queryBuilder->orWhereHas('kategori', function ($q) use ($category, $categories) {
+                $q->where('nama_kategori', 'LIKE', '%' . $category . '%');
+            });
+        }
+    })
+    ->orderBy('created_at', 'desc')
+    ->paginate(5);
+
+    // Mengembalikan view dengan data produk yang ditemukan
+    return view('pages.list-view', compact('products', 'categories'));
+}
+
+public function cartView() {
+    return view('pages.shopping-cart');
+}
+    
 
 }
