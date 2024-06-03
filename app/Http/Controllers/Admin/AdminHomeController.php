@@ -31,6 +31,18 @@ class AdminHomeController extends Controller
 
         return view('adminHome');
     } 
-  
+    
+    public function produk(): View
+    {
+       
+
+        return view('Produk');
+    }
+    public function laporan(): View
+    {
+       
+
+        return view('Laporan');
+    }
 
 }
