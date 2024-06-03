@@ -7,18 +7,24 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminHomeController;
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Auth::routes();
+
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/search', [HomeController::class, 'search'])->name('search');
+Route::get('/cart', [HomeController::class, 'cartView'])->name('cart');
+
+
 
 /*------------------------------------------
 --------------------------------------------
 All Normal Users Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'role:user'])->group(function () {
+Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
   
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('home/{id}', [HomeController::class, 'index'])->name('home');
+
 });
   
 /*------------------------------------------
@@ -26,9 +32,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 All Admin Routes List
 --------------------------------------------
 --------------------------------------------*/
-Route::middleware(['auth', 'role:admin'])->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
   
     Route::get('/admin/home', [AdminHomeController::class, 'index'])->name('admin.home');
-    Route::get('/admin/kategoriProduk', [AdminHomeController::class, 'kategori'])->name('admin.kategoriProduk');
-    Route::get('/admin/order', [AdminHomeController::class, 'order'])->name('admin.order');
 });
