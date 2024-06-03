@@ -39,7 +39,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('order', [AdminHomeController::class, 'order'])->name('admin.order');
     Route::get('editKategori', [AdminHomeController::class, 'editKategori'])->name('admin.editKategori');
     Route::get('Produk', [AdminHomeController::class, 'produk'])->name('admin.produk');
-    Route::get('Laporan', [AdminHomeController::class, 'laporan'])->name('admin.laporan');
+    Route::get('laporan', [AdminHomeController::class, 'laporan'])->name('admin.laporan');
     Route::get('editproduk', [AdminHomeController::class, 'editproduk'])->name('admin.editproduk');
     Route::get('editlaporan', [AdminHomeController::class, 'editlaporan'])->name('admin.editlaporan');
 });
