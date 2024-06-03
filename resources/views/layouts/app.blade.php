@@ -43,16 +43,19 @@
                     <!-- Center elements -->
                     <div class="order-lg-last col-lg-5 col-sm-8 col-8">
                         <div class="d-flex float-end">
-                            @guest
-                            @if (Route::has('login'))
-                            <a href="{{Route('login')}}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" > <i class="fas fa-user-alt m-1 me-md-2"></i>
-                                <p class="d-none d-md-block mb-0">{{__('Sign in')}}</p>
+                        @guest
+                            <a href="{{ route('login') }}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center">
+                                <i class="fas fa-user-alt m-1 me-md-2"></i>
+                                <p class="d-none d-md-block mb-0">{{ __('Sign in') }}</p>
                             </a>
                             @else
-                            <a href="{{Route('logout')}}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" > <i class="fas fa-user-alt m-1 me-md-2"></i>
-                                <p class="d-none d-md-block mb-0">{{__('Logout')}}</p>
+                            <a href="{{ route('logout') }}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-user-alt m-1 me-md-2"></i>
+                                <p class="d-none d-md-block mb-0">{{ __('Logout') }}</p>
                             </a>
-                            @endif
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                             @endguest
                             <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" > <i class="fas fa-heart m-1 me-md-2"></i>
                                 <p class="d-none d-md-block mb-0">Wishlist</p>
