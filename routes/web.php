@@ -5,6 +5,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\KategoriProdukController;
+use App\Http\Controllers\Admin\ProdukController;
+use App\Http\Controllers\KonsumenController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\LaporanController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
+
 
 
 Auth::routes();
@@ -23,7 +31,7 @@ All Normal Users Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'role:user'])->prefix('user')->group(function () {
   
-    Route::get('home/{id}', [HomeController::class, 'index'])->name('home');
+    Route::get('home', [HomeController::class, 'index'])->name('home');
 
 });
   
@@ -34,12 +42,23 @@ All Admin Routes List
 --------------------------------------------*/
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
   
-    Route::get('home', [AdminHomeController::class, 'index'])->name('admin.home');
-    Route::get('kategoriProduk', [AdminHomeController::class, 'kategori'])->name('admin.kategori');
-    Route::get('order', [AdminHomeController::class, 'order'])->name('admin.order');
-    Route::get('editKategori', [AdminHomeController::class, 'editKategori'])->name('admin.editKategori');
-    Route::get('Produk', [AdminHomeController::class, 'produk'])->name('admin.produk');
-    Route::get('laporan', [AdminHomeController::class, 'laporan'])->name('admin.laporan');
-    Route::get('editproduk', [AdminHomeController::class, 'editproduk'])->name('admin.editproduk');
-    Route::get('editlaporan', [AdminHomeController::class, 'editlaporan'])->name('admin.editlaporan');
+    Route::get('home', [AdminHomeController::class, 'index'])->name('admin.dashboard');
+    Route::get('/invoice-data',[AdminHomeController::class, 'getChartData']);
+
+
+    Route::resource('kategoriProduk', KategoriProdukController::class)->names('admin.kategori');
+    Route::resource('Produk', ProdukController::class)->names('admin.produk');
+    Route::resource('order', OrderController::class)->names('admin.order');
+    Route::resource('laporan', LaporanController::class)->names('admin.laporan');
+    Route::resource('admin', AdminController::class)->names('admin.admin');
+    Route::resource('user', UserController::class)->names('admin.user');
+
+
+});
+
+
+Route::middleware(['auth'])->group(function () {
+  
+    Route::resource('konsumen', KonsumenController::class)->names('konsumen')->except('index');
+
 });

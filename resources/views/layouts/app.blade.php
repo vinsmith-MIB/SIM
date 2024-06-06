@@ -21,8 +21,9 @@
     <!-- MDB -->
 
 
+
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>  
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script type="javascript" src="{{asset('assets/js/index.js')}}"></script>
     @viteReactRefresh
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -47,7 +48,7 @@
                         <div class="d-flex float-end">
                             @guest
                             @if (Route::has('login'))
-                            <a href="{{Route('login')}}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" > <i class="fas fa-user-alt m-1 me-md-2"></i>
+                            <a href="{{Route('login')}}" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-user-alt m-1 me-md-2"></i>
                                 <p class="d-none d-md-block mb-0">{{__('Sign in')}}</p>
                             </a>
                             @else
@@ -66,6 +67,11 @@
                             <a href="{{route('cart')}}" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i class="fas fa-shopping-cart m-1 me-md-2"></i>
                                 <p class="d-none d-md-block mb-0">My cart</p>
                             </a>
+                            @auth
+                            <div class=" dborder-none rounded py-1 px-3 nav-link d-flex align-items-center">
+                                @include('components.profile-dropdown')
+                            </div>
+                            @endauth
                         </div>
                     </div>
                     <!-- Center elements -->
@@ -74,7 +80,7 @@
                     <div class="col-lg-5 col-md-12 col-12">
                         <div>
                             <form class="d-flex float-center" action="{{url('search')}}" method="GET">
-                            @csrf
+                                @csrf
                                 <div class="form-outline ">
                                     <input type="search" value="" id="query" name="query" class="form-control" />
                                     <label class="form-label" for="form1">Search</label>
@@ -97,9 +103,10 @@
         @yield('content')
     </main>
     @extends('partials.shopping-footer')
-   
+
     <script src="{{asset('assets/js/index.js')}}"></script>
-    
+    @include('admin.partials.footer')
+
 </body>
 
 </html>

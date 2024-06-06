@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Edit Produk</title>
+    <title>Admin - Edit Kategori Produk</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -24,7 +24,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 40px); /* Adjusted for footer height */
+            min-height: calc(100vh - 40px);
+            /* Adjusted for footer height */
         }
 
         .card {
@@ -50,33 +51,29 @@
         <div class="container-fluid py-5 content-wrapper">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800 text-center">Edit Produk</h1>
+            <h1 class="h3 mb-4 text-gray-800 text-center">Edit Kategori Produk</h1>
 
             <!-- Edit Kategori Produk Form -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Produk</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Edit Kategori Produk</h6>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="{{ route('admin.kategori.update', $kategori->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="nama_produk">Nama Produk</label>
-                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="Nama Kategori">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="{{ $kategori->nama_kategori }}">
                         </div>
                         <div class="form-group">
-                            <label for="harga_produk">Harga</label>
-                            <input type="text" class="form-control" id="harga_produk" name="harga_produk" value="Harga">
-                        </div>
-                        <div class="form-group">
-                            <label for="jumlah_stok">Jumlah Stok</label>
-                            <input type="text" class="form-control" id="jumlah_stok" name="jumlah_stok" value="Jumlah Stok">
+                            <label for="kategori_seo">Kategori SEO</label>
+                            <textarea class="form-control" id="kategori_seo" name="kategori_seo">{{ $kategori->kategori_seo }}</textarea>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                        <a href="{{route('admin.produk')}}" type="button" class="btn btn-danger mr-2">Back</a>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                            <a href="{{ route('admin.kategori.index') }}" type="button" class="btn btn-danger mr-2">Back</a>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>

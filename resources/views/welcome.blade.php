@@ -12,53 +12,23 @@
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-      <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Categories</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Hot offers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gift boxes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Menu item</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Menu name</a>
-        </li>
-        <!-- Navbar dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-            Others
-          </a>
-          <!-- Dropdown menu -->
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#">Action</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Another action</a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </li>
+    <div class="nav-xbootstrap ">
+      <ul>
+        <li><a href="{{url('/')}}">Home</a></li>
+        @hasrole('admin')
+        <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+        @endhasrole
+        <li><a href="javascript:void(0)">Categories<span class="glyphicon glyphicon-chevron-down iconsize"></span></a>
+          <ul class="dropdown text-primary">
+            @foreach($categories as $category)
+            <li><a href="{{route('search',['category' => $category->nama_kategori])}}">{{$category->nama_kategori}}</a></li>
+            @endforeach
           </ul>
         </li>
+        
       </ul>
-      <!-- Left links -->
     </div>
-  </div>
-  <!-- Container wrapper -->
+    <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
 @endsection
@@ -73,7 +43,7 @@
 <!--  intro  -->
 <section class="mt-3">
   <div class="container">
-    <main class="card p-3 shadow-2-strong">
+    <main class="z-3 rounded-3 p-3 shadow-2-strong">
       <div class="row">
         <div class="col-lg-3">
           <nav class="nav flex-column nav-pills mb-md-2">
@@ -124,7 +94,7 @@
             <h5 class="card-title">Rp. {{number_format($product->harga, 0, ',', '.');}}</h5>
             <p class="card-text mb-0">{{$product->nama_produk}}</p>
             <p class="text-muted text-truncate">
-            {{$product->keterangan}}
+              {{$product->keterangan}}
             </p>
           </div>
         </div>
@@ -203,15 +173,14 @@
     </header>
 
     <div class="row gy-3">
-      @for ($i = 0; $i < 6 ; $i++) 
-      <div class="col-lg-2 col-md-4 col-4">
+      @for ($i = 0; $i < 6 ; $i++) <div class="col-lg-2 col-md-4 col-4">
         <a href="#" class="img-wrap">
-            <img height="200" width="200" class="object-fit-cover img-thumbnail" style="height:100%;" src="{{asset('storage/products/'.$products[$i]->gambar)}}" />
+          <img height="200" width="200" class="object-fit-cover img-thumbnail" style="height:100%;" src="{{asset('storage/products/'.$products[$i]->gambar)}}" />
         </a>
-      </div>
-      @endfor
-      
     </div>
+    @endfor
+
+  </div>
   </div>
 </section>
 <!-- Recently viewed -->

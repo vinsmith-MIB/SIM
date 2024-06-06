@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - Edit Kategori Produk</title>
+    <title>Admin - Tambah Kategori Produk</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -50,29 +50,27 @@
         <div class="container-fluid py-5 content-wrapper">
 
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800 text-center">Edit Kategori Produk</h1>
+            <h1 class="h3 mb-4 text-gray-800 text-center">Tambah Kategori Produk</h1>
 
-            <!-- Edit Kategori Produk Form -->
+            <!-- Tambah Kategori Produk Form -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Edit Kategori Produk</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Tambah Kategori Produk</h6>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="{{route('admin.kategori.store')}}" method="POST">
                         @csrf
-                        @method('PUT')
-
                         <div class="form-group">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" value="Nama Kategori">
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" >
                         </div>
                         <div class="form-group">
                             <label for="deskripsi">Kategori SEO</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi">Kategori SEO</textarea>
+                            <textarea class="form-control" id="kategori_seo" name="kategori_seo"></textarea>
                         </div>
                         <div class="w-100 d-flex justify-content-end">
-                        <a href="{{route('admin.kategori')}}" type="button" class="btn btn-danger mr-2">Back</a>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="{{route('admin.kategori.index')}}" type="button" class="btn btn-danger mr-2">Back</a>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambahkan Kategori</button>
                         </div>
                     </form>
                 </div>
